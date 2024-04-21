@@ -415,6 +415,12 @@
             var itemWeight = document.getElementById("itemWeight").value;
             var itemQuantity = document.getElementById("itemQuantity").value; // 获取物品数量
 
+            // 检查是否选择了物品名称
+            if (itemName === "") {
+                alert("Please select an item name.");
+                return; // 停止执行函数
+            }
+
             var category = document.getElementById("itemCategory").value;
             var co2EmissionPerKg = carbonData[category][itemName]; // 使用与项目名称相同的大小写
 
