@@ -56,6 +56,7 @@
             background-position: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
+            width: 100%; /* 添加了宽度为100%的样式 */
         }
 
             /* Use pseudo elements to add left and right edges */
@@ -110,6 +111,16 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            #calculator {
+                width: 95%; /* 在小屏幕下增加了宽度 */
+            }
+
+            #logo {
+                width: 80%; /* 在小屏幕下减小了宽度 */
+            }
         }
 
         #gif-image {
