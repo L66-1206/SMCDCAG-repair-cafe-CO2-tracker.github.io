@@ -93,11 +93,25 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: auto;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
+
+        @media screen and (max-width: 768px) {
+            #logo {
+                max-width: 300px; /* 在小屏幕下减小最大宽度 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #logo {
+                max-width: 200px; /* 在更小的屏幕下进一步减小最大宽度 */
+            }
+        }
+
 
             #logo:hover {
                 transform: scale(1.1);
