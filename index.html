@@ -90,14 +90,15 @@
 
 
         #logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
             width: 100%;
             max-width: 400px;
             height: auto;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            position: fixed;
+            top: 10px; /* 调整 logo 在左上角的位置 */
+            left: 10px; /* 调整 logo 在左上角的位置 */
+            z-index: 1000; /* 确保 logo 处于最顶层 */
         }
 
         /* 新增媒体查询 */
@@ -113,10 +114,6 @@
             }
         }
 
-
-            #logo:hover {
-                transform: scale(1.1);
-            }
 
         #calculator {
             margin: 20px auto;
@@ -138,28 +135,26 @@
             }
         }
 
-        /* 对于 GIF 图像，也应用相似的媒体查询 */
+        /* 对于 GIF 图像，同样应用固定定位 */
         #gif-image {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            max-width: 100%; /* 让 GIF 图像在小屏幕下自适应宽度 */
-            height: auto; /* 让高度根据宽度的变化而自适应 */
+            top: 10px;
+            right: 10px;
+            z-index: 1000; /* 确保 GIF 图像处于最顶层 */
         }
 
-        /* 在较小屏幕下调整 GIF 图像的位置 */
+        /* 对于较小屏幕，可以调整 GIF 图像的位置 */
         @media screen and (max-width: 768px) {
             #gif-image {
-                top: 10px;
-                right: 10px;
+                top: 20px;
+                right: 20px;
             }
         }
 
         @media screen and (max-width: 480px) {
             #gif-image {
-                top: 5px;
-                right: 5px;
+                top: 15px;
+                right: 15px;
             }
         }
 
