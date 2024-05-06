@@ -1,0 +1,371 @@
+/* Other styles remain unchanged */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100vw;
+  overflow-y: auto;
+}
+h3,
+p {
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+a {
+    text-decoration: none; /* Remove underline */
+}
+
+body {
+  background-image: url('B5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+}
+
+/* Use pseudo elements to add left and right edges */
+body::after,
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - 68%) / 2); /* Set edge width */
+  background-color: #003300; /* Set edge color */
+  z-index: -1;
+}
+
+body::after {
+  right: 0; /* right edge */
+  background-color: #fff; /* Set edge color */
+}
+
+body::before {
+  left: 0; /* left edge */
+}
+
+#header {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+}
+
+#logo {
+  width: calc((100vw - 68%) / 2);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover {
+  transform: scale(1.1);
+}
+
+#header-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 68%;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header-right {
+  width: calc((100vw - 68%) / 2);
+  height: 100%;
+  line-height: 100%;
+  background: url(./bubble.png) no-repeat;
+  background-size: 100% 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bubble {
+  width: 80%;
+  height: 50%;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.content {
+  width: 68%;
+  height: 90%;
+  /* border: 1px solid #f00; */
+  position: absolute;
+  top: 10%;
+  left: calc((100vw - 68%) / 2);
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc((100vw - 68%) / 2);
+  height: auto;
+  background: #f3f3f3;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+#footer:hover {
+  transform: scale(1.1);
+}
+
+#calculator {
+  position: absolute;
+  top: 1%;
+  left: 30%;
+  width: 40%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 76%;
+}
+
+/* Add a style to beautify the drop-down box */
+.styled-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.styled-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.styled-select select:focus {
+  outline: none;
+}
+
+.styled-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #666;
+}
+
+#gif-image {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  z-index: 1000;
+  width: 10%;
+  height: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='number'],
+button {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#result {
+  position: absolute;
+  top: 78%;
+  left: 10%;
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  display: none;
+}
+
+#result .highlight {
+  font-size: 30px; /* Enlarged font size for key figures and tree numbers */
+  color: #4caf50; /* Use light green to highlight key numbers */
+}
+
+#environment-icons {
+  position: absolute;
+  top: 18%;
+  right: 0;
+  width: calc((100vw - 68%) / 2);
+  height: 75%;
+  overflow-y: auto;
+}
+
+.environment-icon {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.5);
+}
+
+.environment-icon:hover {
+  transform: scale(1.6);
+}
+
+.optional {
+  font-size: 12px;
+  color: #777;
+  margin-top: -5px;
+}
+
+/* Information icons and pop-up window styles */
+#info-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.info-popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding-top: 100px;
+}
+
+.info-content {
+  background-color: #f9f9f9; /* Change background color */
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid #4caf50; /* Add border */
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #4caf50; /* Modify close button color */
+  transition: color 0.3s ease; /* Add color transition effects */
+}
+
+/* Information window text style */
+.info-content p {
+  color: #333; /* Modify text color */
+  font-size: 25px; /* Modify text size */
+}
+
+#info-one {
+  display: none;
+}
+#info-two {
+  display: none;
+}
+/* Remove default list style */
+.menu {
+    width: calc((100vw - 68%) / 2);
+    position: fixed;
+    top: 10%;
+    left: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden; /* clear float */
+    box-sizing: border-box;
+}
+
+/* Stylized menu links */
+    .menu li {
+    display: block;
+    color: white; /* Link text color */
+    text-align: center;
+    padding: 14px 16px; /* Top, bottom, left and right padding */
+    cursor: pointer;
+    }
+
+/* Link hover effect */
+.menu li:hover {
+    background-color: #4caf50; /* Background color on hover */
+}
+.active {
+    background-color: #247145; /* Background color when selected */
+    color: #fff; /* Text color when selected (if required)*/
+}
+.hidden {
+  display: none;
+}
+
+#total {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 56%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 76%;
+  display: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead th {
+    background-color: #4caf50;
+    color: white;
+    position: sticky; /* Keep the header at the top when scrolling */
+    top: 0; /* Position relative to the top of the container */
+    z-index: 1; /* Make sure the header is above other content */
+}
+th,
+td {
+  border: 1px solid #247145;
+  padding: 8px;
+  text-align: center;
+}
