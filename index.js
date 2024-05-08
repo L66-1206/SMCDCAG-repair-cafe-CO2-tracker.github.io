@@ -8,40 +8,40 @@ var carbonData = {
     // Add more wood products
   },
   'electrical & electronic repairs': {
-    Display: { co2: 21.4, averageWeight: 6.4 },
-    Laptop: { co2: 66, averageWeight: 1.9 },
-    TV: { co2: 5, averageWeight: 20 },
-    'Air conditioner': { co2: 1.8, averageWeight: 54 },
-    'Gas water heater': { co2: 6.7, averageWeight: 10 },
-    'Hedge trimmer': { co2: 4.4, averageWeight: 15 },
-    'Record player': { co2: 5, averageWeight: 10 },
-    'Games console': { co2: 14.6, averageWeight: 3.2 },
-    'Hand held electric drill': { co2: 13.3, averageWeight: 2.5 },
-    'Bracker fan': { co2: 11.1, averageWeight: 3 },
-    'Vacuum cleaner': { co2: 7.4, averageWeight: 4.5 },
-    'Electric heater': { co2: 5.6, averageWeight: 6 },
-    Printer: { co2: 3.3, averageWeight: 10 },
-    Dehumidifier: { co2: 2.8, averageWeight: 12 },
-    'Tablet (iPad)': { co2: 53.3, averageWeight: 0.5 },
-    'Electric blanket': { co2: 7.8, averageWeight: 3 },
-    'Ceiling light': { co2: 7.7, averageWeight: 3 },
-    'Mobile phone': { co2: 91.7, averageWeight: 0.2 },
-    Kettle: { co2: 8.3, averageWeight: 2 },
-    Hairdryer: { co2: 8.3, averageWeight: 2 },
-    'Milk frother': { co2: 9, averageWeight: 1.3 },
-    'Coffee grinder/Coffee machine': { co2: 6.1, averageWeight: 1.9 },
-    'Remote controlled airplane': { co2: 6.7, averageWeight: 1.5 },
-    'PC accessory': { co2: 11.3, averageWeight: 0.8 },
-    'Digital camera': { co2: 10.8, averageWeight: 0.8 },
-    'Hair straighteners': { co2: 13.3, averageWeight: 0.5 },
-    'Standard chandeliers': { co2: 5, averageWeight: 1.2 },
-    'Toy plane': { co2: 10, averageWeight: 0.5 },
-    'Wireless headphone': { co2: 15.8, averageWeight: 0.3 },
-    'Apple charger': { co2: 11.1, averageWeight: 0.3 },
-    Toasters: { co2: 2, averageWeight: 1.5 },
-    'Wireless earbuds': { co2: 39.3, averageWeight: 0.05 },
-    Juicers: { co2: 1.2, averageWeight: 1.5 },
-    'Wired earbuds': { co2: 8.3, averageWeight: 0.02 },
+    Display: { co2: 411, averageWeight: 6.4 },
+    Laptop: { co2: 376, averageWeight: 1.9 },
+    TV: { co2: 300, averageWeight: 20 },
+    'Air conditioner': { co2: 300, averageWeight: 54 },
+    'Gas water heater': { co2: 200, averageWeight: 10 },
+    'Hedge trimmer': { co2: 200, averageWeight: 15 },
+    'Record player': { co2: 150, averageWeight: 10 },
+    'Games console': { co2: 140, averageWeight: 3.2 },
+    'Hand held electric drill': { co2: 100, averageWeight: 2.5 },
+    'Bracker fan': { co2: 100, averageWeight: 3 },
+    'Vacuum cleaner': { co2: 100, averageWeight: 4.5 },
+    'Electric heater': { co2: 100, averageWeight: 6 },
+    Printer: { co2: 100, averageWeight: 10 },
+    Dehumidifier: { co2: 100, averageWeight: 12 },
+    'Tablet (iPad)': { co2: 80, averageWeight: 0.5 },
+    'Electric blanket': { co2: 70, averageWeight: 3 },
+    'Ceiling light': { co2: 69, averageWeight: 3 },
+    'Mobile phone': { co2: 55, averageWeight: 0.2 },
+    Kettle: { co2: 50, averageWeight: 2 },
+    Hairdryer: { co2: 50, averageWeight: 2 },
+    'Milk frother': { co2: 35, averageWeight: 1.3 },
+    'Coffee grinder/Coffee machine': { co2: 351, averageWeight: 1.9 },
+    'Remote controlled airplane': { co2: 30, averageWeight: 1.5 },
+    'PC accessory': { co2: 27, averageWeight: 0.8 },
+    'Digital camera': { co2: 26, averageWeight: 0.8 },
+    'Hair straighteners': { co2: 20, averageWeight: 0.5 },
+    'Standard chandeliers': { co2: 18, averageWeight: 1.2 },
+    'Toy plane': { co2: 15, averageWeight: 0.5 },
+    'Wireless headphone': { co2: 14, averageWeight: 0.3 },
+    'Apple charger': { co2: 10, averageWeight: 0.3 },
+    Toasters: { co2: 9, averageWeight: 1.5 },
+    'Wireless earbuds': { co2: 6, averageWeight: 0.05 },
+    Juicers: { co2: 5.5, averageWeight: 1.5 },
+    'Wired earbuds': { co2: 0.5, averageWeight: 0.02 },
     // Add more electrical & electronic
   },
   leather: {
@@ -134,9 +134,9 @@ function add() {
   }
 
   var category = document.getElementById('itemCategory').value;
-  var co2EmissionPerKg = carbonData[category][itemName]; // Use the same case as the project name
+  var eco2Emission = carbonData[category][itemName]; // Use the same case as the project name
 
-  var defaultWeight = co2EmissionPerKg.averageWeight;
+  var defaultWeight = eco2Emission.averageWeight;
 
   if (!itemWeight) {
     itemWeight = defaultWeight;
@@ -146,7 +146,7 @@ function add() {
   itemQuantity = parseInt(itemQuantity); // Parse quantity into integer
 
   var co2Prevented = Math.round(
-    itemWeight * co2EmissionPerKg.co2 * itemQuantity
+      itemWeight * (eco2Emission.co2 / eco2Emission.averageWeight * 0.5) * itemQuantity
   ); // Consider the number of items and round to a whole number
 
   // Calculate carbon dioxide absorbed by trees, rounded to one decimal place
@@ -154,18 +154,19 @@ function add() {
 
   var temp = [itemName, itemWeight, itemQuantity, co2Prevented, treesAbsorb];
   var tableBody = document.getElementById('tableBody');
-  var row = document.createElement('tr'); // 创建tr元素
+  var row = document.createElement('tr'); // Create tr element
+
   temp.forEach(function (item) {
-    var cell = document.createElement('td'); // 创建td元素
-    cell.textContent = item; // 设置单元格内容
-    row.appendChild(cell); // 将单元格添加到行中
+    var cell = document.createElement('td'); // Create tr element
+    cell.textContent = item; // Sets the cell content
+    row.appendChild(cell); // Adds a cell to the row
   });
 
-  // 创建一个删除按钮的单元格
+  // Creates a delete button cell
   var actionCell = document.createElement('td');
   var deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
-  // 为删除按钮添加点击事件监听器
+  // Add a click event listener for the delete button
   deleteButton.addEventListener('click', function () {
     var cells = row.getElementsByTagName('td');
 
@@ -173,7 +174,7 @@ function add() {
       (co2PreventedTotal * 10000 - cells[3].textContent * 10000) / 10000;
     treesAbsorbTotal =
       (treesAbsorbTotal * 10000 - cells[4].textContent * 10000) / 10000;
-    // 删除当前行
+    // Delete current line
     tableBody.removeChild(row);
     var rows = tableBody.getElementsByTagName('tr');
     if (rows.length == 0) {
@@ -191,7 +192,7 @@ function add() {
   actionCell.appendChild(deleteButton);
   row.appendChild(actionCell);
 
-  // 将行添加到tbody中
+  // Add rows to tbody
   tableBody.appendChild(row);
   co2PreventedTotal += co2Prevented;
   treesAbsorbTotal += treesAbsorb;
@@ -224,9 +225,9 @@ function calculateCarbon() {
   }
 
   var category = document.getElementById('itemCategory').value;
-  var co2EmissionPerKg = carbonData[category][itemName]; // Use the same case as the project name
+  var eco2Emission = carbonData[category][itemName]; // Use the same case as the project name
 
-  var defaultWeight = co2EmissionPerKg.averageWeight;
+  var defaultWeight = eco2Emission.averageWeight;
 
   if (!itemWeight) {
     itemWeight = defaultWeight;
@@ -235,8 +236,8 @@ function calculateCarbon() {
   itemWeight = parseFloat(itemWeight);
   itemQuantity = parseInt(itemQuantity); // Parse quantity into integer
 
-  var co2Prevented = Math.round(
-    itemWeight * co2EmissionPerKg.co2 * itemQuantity
+    var co2Prevented = Math.round(
+        itemWeight * (eco2Emission.co2 / eco2Emission.averageWeight *0.5) * itemQuantity
   ); // Consider the number of items and round to a whole number
 
   // Calculate carbon dioxide absorbed by trees, rounded to one decimal place
